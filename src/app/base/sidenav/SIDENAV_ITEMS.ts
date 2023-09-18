@@ -7,7 +7,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "Menu item 1",
       fr: "Menu item 1"
     },
-    link: 'dd'
+    link: '/products'
 
   },
   {
@@ -16,7 +16,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "Menu item 2",
       fr: "Menu item 2"
     },
-    link: 'ff'
+    link: '/admin/products'
 
   }
 
