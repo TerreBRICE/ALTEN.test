@@ -1,1 +1,14 @@
-<p>product-admin works!</p>
+<app-table
+  [data]="products"
+  [config]="config"
+  [editableRows]="true"
+  [deletableRows]="true"
+  [selectable]="true"
+  [allowAdd]="true"
+  [allowDelete]="true"
+  [allowEdit]="true"
+  [multiSelect]="true"
+  [entity]="Product"
+  (deleted)="deleteProducts($event)"
+></app-table>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

@@ -4,7 +4,7 @@
   [class.unavailable]="controlUnavailable">
     <ng-container *ngSwitchCase="ControlType.INPUT">
       <span class="p-float-label">
-        <input *ngIf="controlConfig.type === 'text'" type="text" pInputText [formControl]="formCtrl"> 
+        <input *ngIf="controlConfig.type === 'text'" type="text" pInputText [formControl]="formCtrl">
         <p-inputNumber *ngIf="controlConfig.type === 'number'" [formControl]="formCtrl"></p-inputNumber>
         <p-calendar *ngIf="controlConfig.type === 'date'" [formControl]="formCtrl"></p-calendar>
         <label [class.mandatory-control]="isRequired" [for]="controlConfig.key">{{ controlConfig.label }}</label>
@@ -44,7 +44,7 @@
 
     <ng-container *ngSwitchCase="ControlType.AUTOCOMPLETE">
       <span class="p-float-label">
-        <p-autoComplete 
+        <p-autoComplete
           [formControl]="formCtrl"
           [virtualScroll]="true"
           [suggestions]="autocompleteSuggestions$ | async"
@@ -97,10 +97,19 @@
             (click)="onTableDisplay(controlConfig)">
           </button>
         </div>
-      </div>       
-    </ng-container> 
+      </div>
+    </ng-container>
+
+  <ng-container *ngSwitchCase="ControlType.FILE">
+    <div class="form-control-container">
+      <span class="label" [class.mandatory-control]="isRequired">{{ controlConfig.label }}</span>
+    </div>
+    <app-file-upload-input [maxFileSize]="64000000" accept="png/jpeg" [imgSrc]="controlConfig.value" [displayImage]="!creation"></app-file-upload-input>
+  </ng-container>
   </div>
-  
+
+
+
   <small class="p-error" *ngIf="formCtrl.invalid && formCtrl.touched">
     {{ error }}
   </small>

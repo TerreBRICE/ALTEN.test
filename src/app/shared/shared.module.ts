@@ -17,6 +17,7 @@ import { DynamicFormControlComponent } from './ui/dynamic-form-control/dynamic-f
 import { TableToolbarComponent } from './ui/table/table-toolbar/table-toolbar.component';
 import { TableFilterCellComponent } from './ui/table/table-filter-cell/table-filter-cell.component';
 import { TableActionsCellComponent } from './ui/table/table-actions-cell/table-actions-cell.component';
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { TableActionsCellComponent } from './ui/table/table-actions-cell/table-a
     ReactiveFormsModule,
     FormsModule,
     PrimeNGModule,
+    RippleModule,
   ],
   exports: [
     CommonModule,
@@ -55,7 +57,10 @@ import { TableActionsCellComponent } from './ui/table/table-actions-cell/table-a
     FileUploadInputComponent,
     PrimeNGModule,
     DynamicFormComponent,
-    TableComponent
+    TableComponent,
+    TableActionsCellComponent,
+    TableToolbarComponent,
+    ColumnsManagementDialogComponent
   ]
 })
 export class SharedModule { }
