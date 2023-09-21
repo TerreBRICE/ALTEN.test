@@ -9,6 +9,9 @@ import {InputText, InputTextModule} from "primeng/inputtext";
 import {TagModule} from "primeng/tag";
 import {RatingModule} from "primeng/rating";
 import {FormsModule} from "@angular/forms";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {SharedModule} from "../shared/shared.module";
+import {ConfirmationService} from "primeng/api";
 
 
 
@@ -25,10 +28,14 @@ import {FormsModule} from "@angular/forms";
     TagModule,
     RatingModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    ConfirmDialogModule,
+    SharedModule,
+
   ],
   exports: [
     DataViewModule
-  ]
+  ],
+  providers: [ConfirmationService]
 })
 export class ProductModule { }

@@ -21,7 +21,7 @@
         [formControl]="sortCtrl"
         styleClass="p-mb-2 p-mb-md-0">
       </p-dropdown>
-      <span class="p-input-icon-left h-45 grow m-5">
+      <span class="p-input-icon-left h-45 ml-2 grow">
         <i class="pi pi-search"></i>
         <input #searchInput
           type="search"
@@ -29,10 +29,10 @@
           placeholder="Search"
           [formControl]="searchCtrl">
       </span>
-      <div *ngIf="enableDateRange" class="h-45 m-5">
+      <div *ngIf="enableDateRange" class="h-45">
         <p-calendar [formControl]="dateRangeCtrl" selectionMode="range" [readonlyInput]="true" inputId="range" [showButtonBar]="true"></p-calendar>
       </div>
-      <p-dataViewLayoutOptions class="h-45 m-5"></p-dataViewLayoutOptions>
+      <p-dataViewLayoutOptions class="h-45"></p-dataViewLayoutOptions>
       <button *ngIf="selectable"
         pButton
         pRipple

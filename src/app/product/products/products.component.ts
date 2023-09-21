@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import { SelectItem } from 'primeng/api';
+import {Product} from "../../shared/models/product.model";
 
 @Component({
   selector: 'app-products',
@@ -9,35 +10,32 @@ import { SelectItem } from 'primeng/api';
 })
 export class ProductsComponent implements OnInit {
 
-  products: any[];
+  @ViewChild('gridItem', { read: TemplateRef })
+  gridItemTemplate: TemplateRef<unknown>;
+
+  products: Product[];
+  productsReady = false;
   sortOptions!: SelectItem[];
 
-  sortOrder!: number;
-
-  sortField!: string;
-
-  layout: string = 'grid';
   constructor(private productsService: ProductsService) { }
   ngOnInit() {
     this.productsService.getProducts()
       .subscribe(res => {
-        console.log(res['data']);
         this.products = res['data'];
+        this.productsReady = true;
       });
 
+    this.sortOptions = [
+      {
+        label: 'Ascending price',
+        value: 'asc-price',
+      },
+      {
+        label: 'Decreasing price',
+        value: 'desc-price',
+      }
+    ];
+
   }
-
-  onSortChange(event: any) {
-    let value = event.value;
-
-    if (value.indexOf('!') === 0) {
-      this.sortOrder = -1;
-      this.sortField = value.substring(1, value.length);
-    } else {
-      this.sortOrder = 1;
-      this.sortField = value;
-    }
-  }
-
 
 }
